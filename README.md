@@ -191,19 +191,19 @@ without touching the gem.
 
 | Property | Default | Description |
 |---|---|---|
-| `--biscuit-bg` | `#1a1a1a` | Banner background colour |
-| `--biscuit-color` | `#f5f5f5` | Banner text colour |
-| `--biscuit-muted` | `#a0a0a0` | Secondary / description text colour |
+| `--biscuit-bg` | `Canvas` | Banner background colour (browser default background) |
+| `--biscuit-color` | `CanvasText` | Banner text colour (browser default text) |
+| `--biscuit-muted` | `GrayText` | Secondary / description text colour |
 | `--biscuit-accent` | `#4f46e5` | Primary button background |
 | `--biscuit-accent-hover` | `#4338ca` | Primary button hover background |
-| `--biscuit-border` | `rgba(255,255,255,0.1)` | Divider / border colour |
+| `--biscuit-border` | `rgba(0,0,0,0.12)` | Divider / border colour |
 | `--biscuit-radius` | `0.375rem` | Button / panel border radius |
 | `--biscuit-font-size` | `0.875rem` | Base font size |
 | `--biscuit-font-family` | `inherit` | Font family |
 | `--biscuit-z-index` | `9999` | Stack order |
 | `--biscuit-padding` | `1rem 1.5rem` | Banner padding |
-| `--biscuit-shadow-bottom` | `0 -2px 12px rgba(0,0,0,0.25)` | Shadow when `position: bottom` |
-| `--biscuit-shadow-top` | `0 2px 12px rgba(0,0,0,0.25)` | Shadow when `position: top` |
+| `--biscuit-shadow-bottom` | `0 -2px 12px rgba(0,0,0,0.12)` | Shadow when `position: bottom` |
+| `--biscuit-shadow-top` | `0 2px 12px rgba(0,0,0,0.12)` | Shadow when `position: top` |
 | `--biscuit-max-width` | `64rem` | Inner content max-width |
 
 ### Override example
@@ -212,12 +212,9 @@ In your application's CSS, after including the biscuit stylesheet:
 
 ```css
 .biscuit-banner {
-  --biscuit-bg:           #ffffff;
-  --biscuit-color:        #111111;
   --biscuit-accent:       #0070f3;
   --biscuit-accent-hover: #005bb5;
-  --biscuit-border:       rgba(0, 0, 0, 0.1);
-  --biscuit-muted:        #666666;
+  --biscuit-border:       rgba(0, 0, 0, 0.08);
 }
 ```
 

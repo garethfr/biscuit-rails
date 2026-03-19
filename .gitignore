@@ -1,0 +1,28 @@
+# Built gem packages
+*.gem
+
+# Bundler
+.bundle/
+Gemfile.lock
+
+# Logs
+log/
+test/dummy/log/
+
+# Temp files
+tmp/
+test/dummy/tmp/
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Project page (kept in repo but not part of the gem)
+project-page.html

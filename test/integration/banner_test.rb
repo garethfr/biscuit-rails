@@ -17,6 +17,18 @@ class BannerIntegrationTest < ActionDispatch::IntegrationTest
     assert_select "[data-biscuit-already-consented-value='false']"
   end
 
+  test "reload_on_consent defaults to false" do
+    get "/"
+    assert_match 'data-biscuit-reload-on-consent-value="false"', response.body
+  end
+
+  test "reload_on_consent can be set to true via biscuit_banner option" do
+    # Render the banner with reload_on_consent: true by visiting a page
+    # that passes the option — verified via the rendered data attribute
+    get "/reload"
+    assert_match 'data-biscuit-reload-on-consent-value="true"', response.body
+  end
+
   test "manage preferences button is present in the banner" do
     get "/"
     assert_match "biscuit#togglePreferences", response.body

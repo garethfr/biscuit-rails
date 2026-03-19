@@ -4,6 +4,7 @@
      data-biscuit-csrf-token-value="<%= form_authenticity_token %>"
      data-biscuit-endpoint-value="<%= biscuit.consent_path %>"
      data-biscuit-already-consented-value="<%= consent.given? %>"
+     data-biscuit-reload-on-consent-value="<%= options[:reload_on_consent] ? 'true' : 'false' %>"
      role="dialog"
      aria-label="<%= t("biscuit.banner.aria_label") %>"
      aria-modal="false">

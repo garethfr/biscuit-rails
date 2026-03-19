@@ -89,6 +89,25 @@ revisit their preferences at any time.
 
 ---
 
+## Banner Options
+
+`biscuit_banner` accepts keyword options to control behaviour per-page:
+
+### `reload_on_consent`
+
+When `true`, the page reloads via `Turbo.visit` after the user saves their
+consent choice, instead of just hiding the banner. This is useful when your
+layout conditionally loads scripts based on consent — a reload ensures those
+scripts are evaluated with the new cookie in place.
+
+```erb
+<%= biscuit_banner(reload_on_consent: true) %>
+```
+
+Default: `false` — the banner hides in place without a page reload.
+
+---
+
 ## Configuration
 
 Create an initializer at `config/initializers/biscuit.rb`:

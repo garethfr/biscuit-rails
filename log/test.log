@@ -1,0 +1,369 @@
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+------------------------------------------------------------------------------
+BannerSystemTest: test_banner_is_visible_on_first_visit_with_no_cookie_present
+------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 11:57:47 +0100
+  
+NameError (uninitialized constant Biscuit::Engine):
+  
+config/routes.rb:1:in '<top (required)>'
+test/integration/banner_test.rb:79:in 'block in <class:BannerSystemTest>'
+------------------------------------------------------------------------------
+BannerSystemTest: test_manage_preferences_button_reveals_the_preferences_panel
+------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 11:57:47 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:84:in 'block in <class:BannerSystemTest>'
+--------------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:analytics)_returns_true_when_cookie_has_analytics:_true
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_always_sets_necessary_to_true
+--------------------------------------------------------------------
+--------------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_coerces_string_true_to_boolean_true
+--------------------------------------------------------------------------
+---------------------------------------------------------------------
+Biscuit::ConsentTest: test_given?_returns_false_when_cookie_is_absent
+---------------------------------------------------------------------
+----------------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_coerces_string_false_to_boolean_false
+----------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:analytics)_returns_false_when_no_cookie_is_present
+---------------------------------------------------------------------------------------
+----------------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_if_version_field_is_wrong
+----------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Biscuit::ConsentTest: test_given?_returns_true_when_a_valid_cookie_is_present
+-----------------------------------------------------------------------------
+-------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_for_invalid_JSON
+-------------------------------------------------------------
+----------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_the_parsed_hash_for_a_valid_cookie_string
+----------------------------------------------------------------------------------
+------------------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_if_version_field_is_missing
+------------------------------------------------------------------------
+--------------------------------------------------
+Biscuit::ConsentTest: test_build_value_sets_v_to_1
+--------------------------------------------------
+----------------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:analytics)_returns_false_when_cookie_has_analytics:_false
+----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:necessary)_returns_true_regardless_of_cookie_state
+---------------------------------------------------------------------------------------
+----------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_for_an_empty_string
+----------------------------------------------------------------
+--------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_sets_consented_at_to_a_UTC_ISO8601_string
+--------------------------------------------------------------------------------
+----------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_for_nil_input
+----------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+BannerIntegrationTest: test_POST_/biscuit/consent_with_valid_payload_and_CSRF_token_returns_ok:_true
+----------------------------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 11:57:47 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:12:in 'block in <class:BannerIntegrationTest>'
+--------------------------------------------------------------------------------
+BannerIntegrationTest: test_POST_/biscuit/consent_without_CSRF_token_returns_422
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+BannerIntegrationTest: test_DELETE_/biscuit/consent_clears_the_consent_cookie_and_returns_ok:_true
+--------------------------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 11:57:47 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:36:in 'block in <class:BannerIntegrationTest>'
+------------------------------------------------------------
+BannerIntegrationTest: test_banner_is_visible_on_first_visit
+------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 11:57:47 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:53:in 'block in <class:BannerIntegrationTest>'
+---------------------------------------------------------------------------------------------------------
+BannerIntegrationTest: test_after_consent_is_given_and_page_is_reloaded_banner_has_already-consented_true
+---------------------------------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 11:57:47 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:59:in 'block in <class:BannerIntegrationTest>'
+------------------------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_categories_include_:necessary_with_required:_true
+------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_custom_categories_hash_is_stored_correctly
+---------------------------------------------------------------------------
+-----------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_name_is_biscuit_consent
+-----------------------------------------------------------------------
+----------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_privacy_policy_url_is_#
+----------------------------------------------------------------
+---------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_reset_configuration!_restores_all_defaults
+---------------------------------------------------------------------------
+---------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_path_is_/
+---------------------------------------------------------
+------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_position_is_:bottom
+------------------------------------------------------------
+-------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_expires_days_is_365
+-------------------------------------------------------------------
+------------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_configure_block_overrides_cookie_expires_days
+------------------------------------------------------------------------------
+-------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_domain_is_nil
+-------------------------------------------------------------
+----------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_same_site_is_Lax
+----------------------------------------------------------------
+-------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_banner_renders_the_banner_partial
+-------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_allowed?_returns_true_for_:necessary_with_no_cookie
+-------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_allowed?_returns_false_for_:analytics_with_no_cookie
+--------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_allowed?_returns_true_for_:analytics_when_consent_cookie_grants_it
+----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_if_version_field_is_missing
+------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_sets_consented_at_to_a_UTC_ISO8601_string
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_coerces_string_true_to_boolean_true
+--------------------------------------------------------------------------
+----------------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_coerces_string_false_to_boolean_false
+----------------------------------------------------------------------------
+----------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_for_nil_input
+----------------------------------------------------------
+---------------------------------------------------------------------
+Biscuit::ConsentTest: test_given?_returns_false_when_cookie_is_absent
+---------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:necessary)_returns_true_regardless_of_cookie_state
+---------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_the_parsed_hash_for_a_valid_cookie_string
+----------------------------------------------------------------------------------
+--------------------------------------------------------------------
+Biscuit::ConsentTest: test_build_value_always_sets_necessary_to_true
+--------------------------------------------------------------------
+-----------------------------------------------------------------------------
+Biscuit::ConsentTest: test_given?_returns_true_when_a_valid_cookie_is_present
+-----------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:analytics)_returns_false_when_no_cookie_is_present
+---------------------------------------------------------------------------------------
+----------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_for_an_empty_string
+----------------------------------------------------------------
+--------------------------------------------------
+Biscuit::ConsentTest: test_build_value_sets_v_to_1
+--------------------------------------------------
+--------------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:analytics)_returns_true_when_cookie_has_analytics:_true
+--------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Biscuit::ConsentTest: test_allowed?(:analytics)_returns_false_when_cookie_has_analytics:_false
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_if_version_field_is_wrong
+----------------------------------------------------------------------
+-------------------------------------------------------------
+Biscuit::ConsentTest: test_parse_returns_nil_for_invalid_JSON
+-------------------------------------------------------------
+---------------------------------------------------------------------
+BannerIntegrationTest: test_reject_all_button_has_correct_data-action
+---------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:36:in 'block in <class:BannerIntegrationTest>'
+-----------------------------------------------------------------------------------
+BannerIntegrationTest: test_banner_is_visible_on_first_visit_with_no_cookie_present
+-----------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:9:in 'block in <class:BannerIntegrationTest>'
+-----------------------------------------------------------------------------------
+BannerIntegrationTest: test_banner_has_already-consented_value_false_when_no_cookie
+-----------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:16:in 'block in <class:BannerIntegrationTest>'
+-----------------------------------------------------------------------------------------------------------
+BannerIntegrationTest: test_after_consent_is_given_and_page_is_reloaded_banner_shows_already-consented_true
+-----------------------------------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:108:in 'block in <class:BannerIntegrationTest>'
+--------------------------------------------------------------------------------
+BannerIntegrationTest: test_reject_all_sets_all_non-required_categories_to_false
+--------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:120:in 'block in <class:BannerIntegrationTest>'
+------------------------------------------------------------------------
+BannerIntegrationTest: test_manage_link_is_present_and_hidden_by_default
+------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:41:in 'block in <class:BannerIntegrationTest>'
+--------------------------------------------------------------------------------
+BannerIntegrationTest: test_POST_/biscuit/consent_without_CSRF_token_returns_422
+--------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+BannerIntegrationTest: test_necessary_category_checkbox_is_disabled_and_checked
+-------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:46:in 'block in <class:BannerIntegrationTest>'
+---------------------------------------------------------------------
+BannerIntegrationTest: test_accept_all_button_has_correct_data-action
+---------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:31:in 'block in <class:BannerIntegrationTest>'
+------------------------------------------------------------------------------
+BannerIntegrationTest: test_manage_preferences_button_is_present_in_the_banner
+------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:21:in 'block in <class:BannerIntegrationTest>'
+-------------------------------------------------------------------------
+BannerIntegrationTest: test_POST_/biscuit/consent_sets_the_consent_cookie
+-------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:67:in 'block in <class:BannerIntegrationTest>'
+-----------------------------------------------------------------------------------------------------
+BannerIntegrationTest: test_consent_cookie_always_forces_necessary_to_true_even_if_submitted_as_false
+-----------------------------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:134:in 'block in <class:BannerIntegrationTest>'
+----------------------------------------------------------------------------------------------------
+BannerIntegrationTest: test_POST_/biscuit/consent_with_valid_payload_and_CSRF_token_returns_ok:_true
+----------------------------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:55:in 'block in <class:BannerIntegrationTest>'
+--------------------------------------------------------------------------------------------------
+BannerIntegrationTest: test_DELETE_/biscuit/consent_clears_the_consent_cookie_and_returns_ok:_true
+--------------------------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:91:in 'block in <class:BannerIntegrationTest>'
+------------------------------------------------------------------------------
+BannerIntegrationTest: test_preferences_panel_is_present_and_hidden_by_default
+------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:00:45 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:26:in 'block in <class:BannerIntegrationTest>'
+----------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_privacy_policy_url_is_#
+----------------------------------------------------------------
+-----------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_name_is_biscuit_consent
+-----------------------------------------------------------------------
+----------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_same_site_is_Lax
+----------------------------------------------------------------
+---------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_reset_configuration!_restores_all_defaults
+---------------------------------------------------------------------------
+-------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_expires_days_is_365
+-------------------------------------------------------------------
+---------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_path_is_/
+---------------------------------------------------------
+---------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_custom_categories_hash_is_stored_correctly
+---------------------------------------------------------------------------
+-------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_cookie_domain_is_nil
+-------------------------------------------------------------
+------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_position_is_:bottom
+------------------------------------------------------------
+------------------------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_default_categories_include_:necessary_with_required:_true
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Biscuit::ConfigurationTest: test_configure_block_overrides_cookie_expires_days
+------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_allowed?_returns_true_for_:analytics_when_consent_cookie_grants_it
+----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_allowed?_returns_true_for_:necessary_with_no_cookie
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_banner_renders_the_banner_partial
+-------------------------------------------------------------------
+  Rendered biscuit/banner/_banner.html.erb (Duration: 1.6ms | GC: 0.0ms)
+--------------------------------------------------------------------------------------
+Biscuit::HelperTest: test_biscuit_allowed?_returns_false_for_:analytics_with_no_cookie
+--------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+BannerIntegrationTest: test_banner_is_visible_on_first_visit_with_no_cookie_present
+-----------------------------------------------------------------------------------
+Started GET "/" for 127.0.0.1 at 2026-03-19 12:07:09 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+test/integration/banner_test.rb:9:in 'block in <class:BannerIntegrationTest>'

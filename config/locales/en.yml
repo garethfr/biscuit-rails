@@ -1,0 +1,24 @@
+en:
+  biscuit:
+    banner:
+      aria_label:  "Cookie consent"
+      message:     "We use cookies to improve your experience on this site."
+      learn_more:  "Learn more"
+      accept_all:  "Accept all"
+      reject_all:  "Reject non-essential"
+      manage:      "Manage preferences"
+      save:        "Save preferences"
+      reopen:      "Cookie settings"
+    categories:
+      necessary:
+        name:        "Necessary"
+        description: "Required for the site to function. Cannot be disabled."
+      analytics:
+        name:        "Analytics"
+        description: "Help us understand how visitors use the site."
+      marketing:
+        name:        "Marketing"
+        description: "Used to show personalised advertisements."
+      preferences:
+        name:        "Preferences"
+        description: "Remember your settings and personalisation choices."

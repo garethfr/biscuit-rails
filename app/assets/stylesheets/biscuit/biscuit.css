@@ -1,0 +1,123 @@
+.biscuit-banner {
+  /* Tokens — override in your app's CSS */
+  --biscuit-bg:              #1a1a1a;
+  --biscuit-color:           #f5f5f5;
+  --biscuit-muted:           #a0a0a0;
+  --biscuit-accent:          #4f46e5;
+  --biscuit-accent-hover:    #4338ca;
+  --biscuit-border:          rgba(255,255,255,0.1);
+  --biscuit-radius:          0.375rem;
+  --biscuit-font-size:       0.875rem;
+  --biscuit-font-family:     inherit;
+  --biscuit-z-index:         9999;
+  --biscuit-padding:         1rem 1.5rem;
+  --biscuit-shadow-bottom:   0 -2px 12px rgba(0,0,0,0.25);
+  --biscuit-shadow-top:      0 2px 12px rgba(0,0,0,0.25);
+  --biscuit-max-width:       64rem;
+
+  position:    fixed;
+  left:        0;
+  right:       0;
+  z-index:     var(--biscuit-z-index);
+  background:  var(--biscuit-bg);
+  color:       var(--biscuit-color);
+  font-size:   var(--biscuit-font-size);
+  font-family: var(--biscuit-font-family);
+  padding:     var(--biscuit-padding);
+}
+
+.biscuit-banner[data-biscuit-position-value="bottom"] {
+  bottom:     0;
+  box-shadow: var(--biscuit-shadow-bottom);
+}
+
+.biscuit-banner[data-biscuit-position-value="top"] {
+  top:        0;
+  box-shadow: var(--biscuit-shadow-top);
+}
+
+.biscuit-banner__inner {
+  max-width:   var(--biscuit-max-width);
+  margin:      0 auto;
+  display:     flex;
+  flex-wrap:   wrap;
+  align-items: center;
+  gap:         0.75rem;
+}
+
+.biscuit-banner__message { flex: 1 1 20rem; }
+
+.biscuit-banner__actions {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       0.5rem;
+}
+
+.biscuit-btn {
+  display:       inline-flex;
+  align-items:   center;
+  padding:       0.4rem 0.9rem;
+  border-radius: var(--biscuit-radius);
+  font-size:     var(--biscuit-font-size);
+  font-weight:   500;
+  cursor:        pointer;
+  border:        1px solid transparent;
+  transition:    background 0.15s, color 0.15s;
+  white-space:   nowrap;
+}
+
+.biscuit-btn--primary {
+  background: var(--biscuit-accent);
+  color:      #fff;
+}
+.biscuit-btn--primary:hover  { background: var(--biscuit-accent-hover); }
+
+.biscuit-btn--secondary {
+  background:   transparent;
+  color:        var(--biscuit-color);
+  border-color: var(--biscuit-border);
+}
+.biscuit-btn--secondary:hover { background: rgba(255,255,255,0.08); }
+
+.biscuit-preferences { width: 100%; margin-top: 0.75rem; border-top: 1px solid var(--biscuit-border); padding-top: 0.75rem; }
+.biscuit-preferences:not(.biscuit-preferences--open) { display: none; }
+
+.biscuit-preference-row {
+  display:       flex;
+  align-items:   flex-start;
+  gap:           0.75rem;
+  padding:       0.5rem 0;
+  border-bottom: 1px solid var(--biscuit-border);
+}
+.biscuit-preference-row:last-child    { border-bottom: none; }
+.biscuit-preference-row__label       { flex: 1; }
+.biscuit-preference-row__name        { font-weight: 600; display: block; }
+.biscuit-preference-row__description { color: var(--biscuit-muted); font-size: 0.8rem; }
+
+.biscuit-preferences__footer {
+  margin-top: 0.75rem;
+}
+
+.biscuit-manage-link {
+  position:        fixed;
+  z-index:         var(--biscuit-z-index);
+  font-size:       0.75rem;
+  color:           var(--biscuit-muted);
+  background:      transparent;
+  border:          none;
+  cursor:          pointer;
+  padding:         0.25rem 0.5rem;
+  text-decoration: underline;
+}
+.biscuit-manage-link[data-biscuit-position-value="bottom"] { bottom: 0.5rem; left: 1rem; }
+.biscuit-manage-link[data-biscuit-position-value="top"]    { top: 0.5rem;    left: 1rem; }
+
+.biscuit-learn-more {
+  color: var(--biscuit-color);
+}
+
+@media (max-width: 640px) {
+  .biscuit-banner__inner   { flex-direction: column; align-items: flex-start; }
+  .biscuit-banner__actions { width: 100%; }
+  .biscuit-btn             { flex: 1 1 auto; justify-content: center; }
+}

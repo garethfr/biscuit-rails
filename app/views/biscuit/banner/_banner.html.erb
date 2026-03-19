@@ -1,0 +1,103 @@
+<div class="biscuit-banner"
+     data-controller="biscuit"
+     data-biscuit-position-value="<%= Biscuit.configuration.position %>"
+     data-biscuit-csrf-token-value="<%= form_authenticity_token %>"
+     data-biscuit-endpoint-value="<%= biscuit.consent_path %>"
+     data-biscuit-already-consented-value="<%= consent.given? %>"
+     role="dialog"
+     aria-label="<%= t("biscuit.banner.aria_label") %>"
+     aria-modal="false">
+
+  <div class="biscuit-banner__inner">
+    <p class="biscuit-banner__message">
+      <%= t("biscuit.banner.message") %>
+      <a href="<%= Biscuit.configuration.privacy_policy_url %>" class="biscuit-learn-more">
+        <%= t("biscuit.banner.learn_more") %>
+      </a>
+    </p>
+
+    <div class="biscuit-banner__actions">
+      <button type="button"
+              class="biscuit-btn biscuit-btn--primary"
+              data-action="click->biscuit#acceptAll"
+              aria-label="<%= t("biscuit.banner.accept_all") %>">
+        <%= t("biscuit.banner.accept_all") %>
+      </button>
+
+      <button type="button"
+              class="biscuit-btn biscuit-btn--secondary"
+              data-action="click->biscuit#rejectAll"
+              aria-label="<%= t("biscuit.banner.reject_all") %>">
+        <%= t("biscuit.banner.reject_all") %>
+      </button>
+
+      <button type="button"
+              class="biscuit-btn biscuit-btn--secondary"
+              data-action="click->biscuit#togglePreferences"
+              aria-expanded="false"
+              aria-controls="biscuit-preferences-panel">
+        <%= t("biscuit.banner.manage") %>
+      </button>
+    </div>
+
+    <div id="biscuit-preferences-panel"
+         class="biscuit-preferences"
+         data-biscuit-target="preferencesPanel"
+         hidden
+         aria-label="<%= t("biscuit.banner.manage") %>">
+
+      <% Biscuit.configuration.categories.each do |key, opts| %>
+        <div class="biscuit-preference-row">
+          <% checkbox_id = "biscuit-category-#{key}" %>
+
+          <% if opts[:required] %>
+            <input type="checkbox"
+                   id="<%= checkbox_id %>"
+                   checked
+                   disabled
+                   aria-label="<%= t("biscuit.categories.#{key}.name") %>"
+                   aria-describedby="<%= checkbox_id %>-desc">
+          <% else %>
+            <input type="checkbox"
+                   id="<%= checkbox_id %>"
+                   data-biscuit-target="categoryCheckbox"
+                   data-category="<%= key %>"
+                   <%= consent.given? && consent.allowed?(key) ? "checked" : "" %>
+                   aria-label="<%= t("biscuit.categories.#{key}.name") %>"
+                   aria-describedby="<%= checkbox_id %>-desc">
+          <% end %>
+
+          <div class="biscuit-preference-row__label">
+            <label for="<%= checkbox_id %>" class="biscuit-preference-row__name">
+              <%= t("biscuit.categories.#{key}.name") %>
+              <% if opts[:required] %>
+                <span aria-hidden="true"> (required)</span>
+              <% end %>
+            </label>
+            <span id="<%= checkbox_id %>-desc" class="biscuit-preference-row__description">
+              <%= t("biscuit.categories.#{key}.description") %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="biscuit-preferences__footer">
+        <button type="button"
+                class="biscuit-btn biscuit-btn--primary"
+                data-action="click->biscuit#savePreferences">
+          <%= t("biscuit.banner.save") %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button"
+        class="biscuit-manage-link"
+        data-biscuit-target="manageLink"
+        data-biscuit-position-value="<%= Biscuit.configuration.position %>"
+        data-action="click->biscuit#reopen"
+        hidden
+        aria-label="<%= t("biscuit.banner.reopen") %>">
+  <%= t("biscuit.banner.reopen") %>
+</button>

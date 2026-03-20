@@ -361,34 +361,35 @@ lightweight Turbo visit to reload the page after the consent POST succeeds.
 
 ## i18n
 
-Biscuit ships with English (`en`) and French (`fr`) translations. To add
-another locale, create `config/locales/biscuit.<locale>.yml` in your app:
+Biscuit ships with translations for English (`en`), French (`fr`),
+German (`de`), and Spanish (`es`). To add another locale, create
+`config/locales/biscuit.<locale>.yml` in your app:
 
 ```yaml
-de:
+pt:
   biscuit:
     banner:
-      aria_label:  "Cookie-Zustimmung"
-      message:     "Wir verwenden Cookies, um Ihr Erlebnis auf dieser Website zu verbessern."
-      learn_more:  "Mehr erfahren"
-      accept_all:  "Alle akzeptieren"
-      reject_all:  "Nicht wesentliche ablehnen"
-      manage:      "Einstellungen verwalten"
-      save:        "Einstellungen speichern"
-      reopen:      "Cookie-Einstellungen"
+      aria_label:  "Consentimento de cookies"
+      message:     "Utilizamos cookies para melhorar a sua experiência neste site."
+      learn_more:  "Saber mais"
+      accept_all:  "Aceitar tudo"
+      reject_all:  "Rejeitar não essenciais"
+      manage:      "Gerir preferências"
+      save:        "Guardar preferências"
+      reopen:      "Definições de cookies"
     categories:
       necessary:
-        name:        "Notwendig"
-        description: "Für die Funktion der Website erforderlich. Kann nicht deaktiviert werden."
+        name:        "Necessários"
+        description: "Indispensáveis para o funcionamento do site. Não podem ser desativados."
       analytics:
-        name:        "Analyse"
-        description: "Helfen uns zu verstehen, wie Besucher die Website nutzen."
+        name:        "Análise"
+        description: "Ajudam-nos a perceber como os visitantes utilizam o site."
       marketing:
         name:        "Marketing"
-        description: "Werden verwendet, um personalisierte Werbung anzuzeigen."
+        description: "Utilizados para mostrar publicidade personalizada."
       preferences:
-        name:        "Präferenzen"
-        description: "Speichern Ihre Einstellungen und Personalisierungsoptionen."
+        name:        "Preferências"
+        description: "Memorizam as suas definições e escolhas de personalização."
 ```
 
 ---

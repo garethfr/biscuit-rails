@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2026-03-28
+
+### Fixed
+
+- Manage link ("Cookie settings") button now works correctly — it was rendered
+  outside the Stimulus controller's element scope, so targets and actions were
+  never connected. The banner partial now wraps both the banner and the manage
+  link in a single controller root element.
+
+### Added
+
+- Engine auto-registers its importmap pin with the host app via a
+  `biscuit.importmap` initializer — users no longer need to manually add
+  `pin "biscuit/biscuit_controller"` to `config/importmap.rb`. No-op in
+  esbuild/jsbundling apps.
+
+---
+
 ## [0.1.2] - 2026-03-20
 
 ### Added

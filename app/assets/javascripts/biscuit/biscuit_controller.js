@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["preferencesPanel", "categoryCheckbox", "manageLink"]
+  static targets = ["banner", "preferencesPanel", "categoryCheckbox", "manageLink"]
   static values  = {
     endpoint:         String,
     csrfToken:        String,
@@ -82,8 +82,8 @@ export default class extends Controller {
     }
   }
 
-  #hideBanner()     { this.element.hidden = true;  this.element.setAttribute("aria-hidden", "true") }
-  #showBanner()     { this.element.hidden = false; this.element.removeAttribute("aria-hidden") }
+  #hideBanner()     { this.bannerTarget.hidden = true;  this.bannerTarget.setAttribute("aria-hidden", "true") }
+  #showBanner()     { this.bannerTarget.hidden = false; this.bannerTarget.removeAttribute("aria-hidden") }
   #showManageLink() { if (this.hasManageLinkTarget) this.manageLinkTarget.hidden = false }
   #hideManageLink() { if (this.hasManageLinkTarget) this.manageLinkTarget.hidden = true }
 }

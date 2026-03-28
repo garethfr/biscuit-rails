@@ -13,5 +13,13 @@ module Biscuit
     initializer "biscuit.i18n" do
       config.i18n.load_path += Dir[Engine.root.join("config/locales/*.yml")]
     end
+
+    # Register JS pin with the host app's importmap (importmap-rails only)
+    initializer "biscuit.importmap", before: "importmap" do |app|
+      if app.config.respond_to?(:importmap)
+        app.config.importmap.paths << Engine.root.join("config/importmap.rb")
+        app.config.importmap.cache_sweepers << Engine.root.join("app/assets/javascripts")
+      end
+    end
   end
 end

@@ -50,15 +50,7 @@ Rails.application.routes.draw do
 end
 ```
 
-### 2. Pin the Stimulus controller
-
-In `config/importmap.rb`:
-
-```ruby
-pin "biscuit/biscuit_controller", to: "biscuit/biscuit_controller.js"
-```
-
-### 3. Register the Stimulus controller
+### 2. Register the Stimulus controller
 
 In `app/javascript/controllers/index.js`:
 
@@ -67,7 +59,7 @@ import BiscuitController from "biscuit/biscuit_controller"
 application.register("biscuit", BiscuitController)
 ```
 
-### 4. Include the stylesheet
+### 3. Include the stylesheet
 
 In your layout (`app/views/layouts/application.html.erb`):
 
@@ -75,7 +67,7 @@ In your layout (`app/views/layouts/application.html.erb`):
 <%= stylesheet_link_tag "biscuit/biscuit" %>
 ```
 
-### 5. Render the banner
+### 4. Render the banner
 
 In your layout, inside `<body>`:
 

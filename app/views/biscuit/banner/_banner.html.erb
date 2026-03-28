@@ -1,10 +1,12 @@
-<div class="biscuit-banner"
-     data-controller="biscuit"
+<div data-controller="biscuit"
      data-biscuit-position-value="<%= Biscuit.configuration.position %>"
      data-biscuit-csrf-token-value="<%= form_authenticity_token %>"
      data-biscuit-endpoint-value="<%= biscuit.consent_path %>"
      data-biscuit-already-consented-value="<%= consent.given? %>"
-     data-biscuit-reload-on-consent-value="<%= options[:reload_on_consent] ? 'true' : 'false' %>"
+     data-biscuit-reload-on-consent-value="<%= options[:reload_on_consent] ? 'true' : 'false' %>">
+
+<div class="biscuit-banner"
+     data-biscuit-target="banner"
      role="dialog"
      aria-label="<%= t("biscuit.banner.aria_label") %>"
      aria-modal="false">
@@ -102,3 +104,5 @@
         aria-label="<%= t("biscuit.banner.reopen") %>">
   <%= t("biscuit.banner.reopen") %>
 </button>
+
+</div>

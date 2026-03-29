@@ -26,12 +26,12 @@
   padding:     var(--biscuit-padding);
 }
 
-.biscuit-banner[data-biscuit-position-value="bottom"] {
+[data-biscuit-position-value="bottom"] .biscuit-banner {
   bottom:     0;
   box-shadow: var(--biscuit-shadow-bottom);
 }
 
-.biscuit-banner[data-biscuit-position-value="top"] {
+[data-biscuit-position-value="top"] .biscuit-banner {
   top:        0;
   box-shadow: var(--biscuit-shadow-top);
 }

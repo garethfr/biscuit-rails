@@ -118,6 +118,7 @@
 
 @media (max-width: 640px) {
   .biscuit-banner__inner   { flex-direction: column; align-items: flex-start; }
+  .biscuit-banner__message { flex-basis: auto; }
   .biscuit-banner__actions { width: 100%; }
   .biscuit-btn             { flex: 1 1 auto; justify-content: center; }
 }

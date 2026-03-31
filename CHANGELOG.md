@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-03-31
+
+### Added
+
+- `rails generate biscuit:install` generator — installs a Claude Code skill
+  into `.claude/skills/biscuit-install/` for AI-assisted setup
+- `biscuit-install` Claude Code skill — guides developers through compatibility
+  checks, engine mounting, Stimulus registration, initializer configuration,
+  cookie and tracking script audit, integration tests, and optional commit
+- README section documenting the AI-assisted setup workflow
+
+---
+
 ## [0.1.4] - 2026-03-29
 
 ### Fixed

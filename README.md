@@ -21,7 +21,39 @@ default).
 
 ---
 
-## Installation
+## AI-assisted setup (Claude Code)
+
+If you use [Claude Code](https://claude.ai/code), the quickest way to install
+and configure biscuit is via the built-in setup skill.
+
+After adding the gem to your Gemfile and running `bundle install`, run the
+generator to install the skill:
+
+```sh
+rails generate biscuit:install
+```
+
+Then open Claude Code in your project and run:
+
+```
+/biscuit-install
+```
+
+The skill will:
+
+- Check your app is compatible (Ruby, Rails, Propshaft, Stimulus)
+- Mount the engine and register the Stimulus controller
+- Ask about banner position, cookie categories, and other preferences
+- Generate `config/initializers/biscuit.rb` from your answers
+- Scan your codebase for existing cookies and third-party tracking scripts
+  (Google Analytics, GTM, Meta Pixel, etc.) and help you wrap them with
+  `biscuit_allowed?` guards
+- Add integration tests and run them
+- Optionally commit everything
+
+---
+
+## Manual installation
 
 Add to your `Gemfile`:
 

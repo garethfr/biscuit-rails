@@ -100,6 +100,8 @@ application.register("biscuit", BiscuitController)
 
 Ensure `application` is already imported at the top of that file (it will be in the standard Rails 8 scaffold).
 
+The explicit import is required because Rails' `eagerLoadControllersFrom` only auto-discovers controllers under `app/javascript/controllers/` — it cannot find controllers provided by gems, so they must always be registered manually.
+
 ### If using esbuild / jsbundling
 
 The same import and register lines apply, but inform the user that `@hotwired/stimulus` must be marked as external in their esbuild config so it is not bundled twice:
@@ -124,6 +126,15 @@ If the app uses `reload_on_consent: true` (from Step 4), use:
 
 ```erb
 <%= biscuit_banner(reload_on_consent: true) %>
+```
+
+### Sprockets manifest (if not using Propshaft)
+
+If the app uses Sprockets (no `propshaft` in Gemfile), check whether `app/assets/config/manifest.js` exists. If it does, append these two lines if they are not already present — otherwise the stylesheet and JS file will 404 in test and production:
+
+```js
+//= link biscuit/biscuit.css
+//= link biscuit/biscuit_controller.js
 ```
 
 ---
@@ -209,20 +220,18 @@ class BiscuitConsentTest < ActionDispatch::IntegrationTest
   end
 
   test "accept all sets consent cookie" do
-    post "/biscuit/consent", params: {},
-      headers: { "Content-Type" => "application/json" },
-      as: :json,
-      body: { categories: { analytics: true, marketing: true } }.to_json
+    post "/biscuit/consent",
+      params: { categories: { analytics: true, marketing: true } }.to_json,
+      headers: { "Content-Type" => "application/json", "Accept" => "application/json" }
     assert_response :success
     assert Biscuit::Consent.new(cookies).given?
     assert Biscuit::Consent.new(cookies).allowed?(:analytics)
   end
 
   test "reject all sets non-required categories to false" do
-    post "/biscuit/consent", params: {},
-      headers: { "Content-Type" => "application/json" },
-      as: :json,
-      body: { categories: { analytics: false, marketing: false } }.to_json
+    post "/biscuit/consent",
+      params: { categories: { analytics: false, marketing: false } }.to_json,
+      headers: { "Content-Type" => "application/json", "Accept" => "application/json" }
     assert_response :success
     assert Biscuit::Consent.new(cookies).given?
     assert_equal false, Biscuit::Consent.new(cookies).allowed?(:analytics)

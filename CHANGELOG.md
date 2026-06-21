@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-06-21
+
+### Added
+
+- `biscuit:consent-given` DOM event — dispatched on the banner element (bubbles)
+  after every successful consent POST, with `detail.categories` mirroring the
+  saved payload. Lets apps run tracking code (GA4 Consent Mode v2, GTM dataLayer,
+  Meta Pixel, etc.) immediately after consent without any page reload.
+
+### Removed
+
+- `reload_on_consent` option for `biscuit_banner` — removed as the
+  `biscuit:consent-given` event supersedes it. Apps that need a page reload
+  after consent can do `document.addEventListener("biscuit:consent-given",
+  () => window.location.reload())`.
+
+**Migration:** remove `reload_on_consent: true` from any `biscuit_banner`
+calls. Add the one-liner above if a reload is still needed for your use case.
+
+---
+
 ## [0.2.1] - 2026-04-02
 
 ### Fixed

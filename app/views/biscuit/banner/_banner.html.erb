@@ -2,8 +2,7 @@
      data-biscuit-position-value="<%= Biscuit.configuration.position %>"
      data-biscuit-csrf-token-value="<%= form_authenticity_token %>"
      data-biscuit-endpoint-value="<%= biscuit.consent_path %>"
-     data-biscuit-already-consented-value="<%= consent.given? %>"
-     data-biscuit-reload-on-consent-value="<%= options[:reload_on_consent] ? 'true' : 'false' %>">
+     data-biscuit-already-consented-value="<%= consent.given? %>">
 
 <div class="biscuit-banner"
      data-biscuit-target="banner"

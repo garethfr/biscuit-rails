@@ -6,8 +6,7 @@ export default class extends Controller {
     endpoint:         String,
     csrfToken:        String,
     position:         { type: String, default: "bottom" },
-    alreadyConsented: { type: Boolean, default: false },
-    reloadOnConsent:  { type: Boolean, default: false }
+    alreadyConsented: { type: Boolean, default: false }
   }
 
   connect() {
@@ -70,12 +69,12 @@ export default class extends Controller {
         body: JSON.stringify({ categories })
       })
       if (response.ok) {
-        if (this.reloadOnConsentValue) {
-          Turbo.visit(window.location.href)
-        } else {
-          this.#hideBanner()
-          this.#showManageLink()
-        }
+        this.element.dispatchEvent(new CustomEvent("biscuit:consent-given", {
+          bubbles: true,
+          detail: { categories }
+        }))
+        this.#hideBanner()
+        this.#showManageLink()
       }
     } catch (error) {
       console.error("[Biscuit] Failed to save consent:", error)

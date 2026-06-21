@@ -5,6 +5,8 @@ bottom/top banner, manages consent state via a browser cookie, and exposes a
 Stimulus controller for interactivity. Supports i18n and CSS custom property
 theming with no external runtime dependencies.
 
+[Project page](https://bemused.org/projects/biscuit-rails/) · [GitHub](https://github.com/garethfr/biscuit-rails) · [Changelog](https://github.com/garethfr/biscuit-rails/blob/main/CHANGELOG.md) · [Issues](https://github.com/garethfr/biscuit-rails/issues)
+
 ---
 
 ## Requirements
@@ -115,20 +117,45 @@ revisit their preferences at any time.
 
 ## Banner Options
 
-`biscuit_banner` accepts keyword options to control behaviour per-page:
+`biscuit_banner` accepts keyword options to control behaviour per-page.
 
-### `reload_on_consent`
+Currently there are no banner-level options. Configuration is done via the
+initializer — see **Configuration** below.
 
-When `true`, the page reloads via `Turbo.visit` after the user saves their
-consent choice, instead of just hiding the banner. This is useful when your
-layout conditionally loads scripts based on consent — a reload ensures those
-scripts are evaluated with the new cookie in place.
+---
 
-```erb
-<%= biscuit_banner(reload_on_consent: true) %>
+## `biscuit:consent-given` event
+
+After any consent POST succeeds, the controller dispatches a
+`biscuit:consent-given` DOM event on the banner's root element. The event
+bubbles, so you can listen anywhere:
+
+```js
+document.addEventListener("biscuit:consent-given", ({ detail }) => {
+  if (detail.categories.analytics) {
+    // GA4 Consent Mode v2 — no page reload needed
+    gtag("consent", "update", { analytics_storage: "granted" })
+    gtag("event", "page_view")
+  }
+  if (detail.categories.marketing) {
+    fbq("consent", "grant")
+    fbq("track", "PageView")
+  }
+})
 ```
 
-Default: `false` — the banner hides in place without a page reload.
+`detail.categories` mirrors the payload sent to the server —
+`{ analytics: true, marketing: false, ... }`.
+
+If you need a full page reload after consent (for example, to trigger
+server-side `biscuit_allowed?()` guards on the current page), do it in the
+handler:
+
+```js
+document.addEventListener("biscuit:consent-given", () => {
+  window.location.reload()
+})
+```
 
 ---
 
@@ -364,10 +391,8 @@ Biscuit provides the consent UI and storage mechanism. You are responsible for:
 ```
 
 For scripts that must load on the client side after a user accepts consent
-during their current session (without a page reload), listen for the Fetch
-response in your own JavaScript and initialise scripts there, or use a
-lightweight Turbo visit to reload the page after the consent POST succeeds.
-(Turbo Stream support for post-consent injection is planned for v2.)
+during their current session (without a page reload), listen for the
+`biscuit:consent-given` DOM event and initialise scripts there.
 
 ### GDPR compliance checklist
 

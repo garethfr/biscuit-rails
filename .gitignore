@@ -1,6 +1,10 @@
 # Built gem packages
 *.gem
 
+# JS dependencies
+node_modules/
+package-lock.json
+
 # Bundler
 .bundle/
 Gemfile.lock
